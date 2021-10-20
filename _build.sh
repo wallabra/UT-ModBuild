@@ -15,7 +15,7 @@ cleanup() {
 }
 
 ( # Subshell to preserve original working dir
-    cat "$makeini">"$TMP_INI"
+    echo '[Editor.EditorEngine]'
     echo EditPackages="$packagefull">>"$TMP_INI"
 
     cd "$utdir"
