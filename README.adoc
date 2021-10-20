@@ -97,9 +97,10 @@ and `bz2`, but you will also need to install a Go package named `mustache`.
 You can grab it by https://golang.org/doc/install[installing Go],
 and then running:
 
-```console
+[source,console]
+----
 $ go get github.com/cbroglie/mustache/..
-```
+----
 
 === Build
 
@@ -115,7 +116,7 @@ You can then use `DESTDIR=/path/to/my/UnrealTournament make install` to install
 the mod.
 
 
-[##applying]
+[#applying]
 == How to Apply
 
 Using this template depends on whether you're adapting for an existing mod or
@@ -166,7 +167,7 @@ For more info on template values, see <<template-values>>
 
 Miscellaneous tidbits of documentation for completeness's sake.
 
-[##auto-release]
+[#auto-release]
 === Auto-Releases
 
 For your convenience, UT ModBuild includes a CI workflow file; more precisely,
@@ -193,7 +194,7 @@ NOTE: Automatic releases will always be set as drafts. To actually publish them,
 press _Edit_, then near the bottom _Publish release_.
 
 
-[##build-config]
+[#build-config]
 === Build Configuration
 
 Here are the options for `buildconfig.sh`:
@@ -205,24 +206,21 @@ Here are the options for `buildconfig.sh`:
         Self-explanatory, the name of your package internally.
 
     version::
-        ====
         Self-explanatory, the human-friendly version string of your mod.
-
+        +
         I personally recommend sticking to
         https://semver.org/[Semantic Versioning], as does MushMatch, to be able
         to actually properly express the size of an update by its version
         number.
-
+        +
         See <<versioning>> for more info and guidelines on, well, versioning.
-        ====
 
     build::
-        ====
         A build number, more internal than the version number.
-
+        +
         A good build number format, which is used in Mush Match and also the
         default one here, is *YYYYWWBB*, where
-
+        +
           * _YYYY_ is the year,
 
           * _WW_ is the https://en.wikipedia.org/wiki/ISO_week_date[ISO] week 
@@ -231,30 +229,28 @@ Here are the options for `buildconfig.sh`:
             start on Mondays);
 
           * _BB_ is a suffix to discern from previous builds in the same week.
-
+        +
         This format is very similar, for example, to what is used in
         Minecraft's snapshot versioning format.
-
+        +
         You don't have to do it this way. Do it however you want if you'd rather!
         See <<versioning>> for more info and guidelines on it.
-        ====
 
     debug::
-        ====
         Whether this is the full release, or a pre-release. See <<versioning>>
         on why you'd want this and how to do that.
-
+        +
         Mush Match uses this in its Mustache-templated UnrealScript to
         https://github.com/Gustavo6046/MushMatch/blob/05e3d504273ce09167a44748d801d0702b7df1eb/Classes/MushMatch.uc#L982[display the build number]
         within the gametype's very name only in debug builds:
-
-        ```
+        +
+        [source,ini]
+        ----
         GameName="Mush Match {{{version}}}{{{namesuffix}}}"
-        ```
-        ====
+        ----
 
 
-[##versioning]
+[#versioning]
 == Versioning
 
 This is more of a general guideline or rule of thumb. UT ModBuild is useful
@@ -274,13 +270,13 @@ commit of the release. The reason is two-fold:
     `namesuffix` template value, which you can use, e.g., to allow players
     to see the build number next to the name, indicating that it is a
     pre-release and that it's more of a testing version than anything.
-
+    +
     See [[#template-values]] for more on those template values.
 
   * Even if you use a release tag here, the CI workflow will automatically
     set the new release to be a 'pre-release', and to be displayed as such,
     if `debug` is set.
-
+    +
     See [[#auto-release]] for more on auto-releases.
 
 Of course, the only real purpose of the build number is to discern from other
@@ -288,7 +284,7 @@ builds, to avoid the classic and frustrating Package Mismatch errors you can
 get if multiple versions of a mod are floating around with the same filename.
 
 
-[##template-values]
+[#template-values]
 == Template Values
 
 UT ModBuild uses the Mustache template engine to process not only `template.int`,
