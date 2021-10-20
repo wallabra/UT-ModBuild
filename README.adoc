@@ -1,9 +1,10 @@
 UT ModBuild Build System Template
-============================
+=================================
+
 Gustavo Ramos Rehermann <rehermann6046@gmail.com>
+:homepage: https://github.com/Gustavo6046/ut-mod-build
 :toc:
 :numbered:
-:homepage: https://github.com/Gustavo6046/ut-mod-build
 
 This is a generic build system for classic Unreal Tournament projects,
 particularly mods.
