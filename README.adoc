@@ -115,7 +115,7 @@ You can then use `DESTDIR=/path/to/my/UnrealTournament make install` to install
 the mod.
 
 
-[[#applying]]
+[##applying]
 == How to Apply
 
 Using this template depends on whether you're adapting for an existing mod or
@@ -166,7 +166,7 @@ For more info on template values, see <<template-values>>
 
 Miscellaneous tidbits of documentation for completeness's sake.
 
-[[#auto-release]]
+[##auto-release]
 === Auto-Releases
 
 For your convenience, UT ModBuild includes a CI workflow file; more precisely,
@@ -193,7 +193,7 @@ NOTE: Automatic releases will always be set as drafts. To actually publish them,
 press _Edit_, then near the bottom _Publish release_.
 
 
-[[#build-config]]
+[##build-config]
 === Build Configuration
 
 Here are the options for `buildconfig.sh`:
@@ -248,7 +248,7 @@ Here are the options for `buildconfig.sh`:
         ```
 
 
-[[#versioning]]
+[##versioning]
 == Versioning
 
 This is more of a general guideline or rule of thumb. UT ModBuild is useful
@@ -282,7 +282,7 @@ builds, to avoid the classic and frustrating Package Mismatch errors you can
 get if multiple versions of a mod are floating around with the same filename.
 
 
-[[#template-values]]
+[##template-values]
 == Template Values
 
 UT ModBuild uses the Mustache template engine to process not only `template.int`,
