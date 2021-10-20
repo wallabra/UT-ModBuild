@@ -189,6 +189,10 @@ To tag a commit for release, you must Git tag it with a name with the format
 `releases/v1.0.0`. This should be picked up by the CI workflow when you push
 it to GitHub.
 
+NOTE: Automatic releases will always be set as drafts. To actually publish them,
+press _Edit_, then near the bottom _Publish release_.
+
+
 [[#build-config]]
 === Build Configuration
 
