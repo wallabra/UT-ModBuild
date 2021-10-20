@@ -6,7 +6,8 @@ Gustavo Ramos Rehermann <rehermann6046@gmail.com>
 :numbered:
 
 This is a generic build system for classic Unreal Tournament projects,
-particularly mods.
+particularly mods. It lets you, the modder, spend more of your time writing
+your mod, and less of it dealing with building or releasing it.
 
 May or may not be applicable to other UE1 games, such as Deus Ex, though
 it has never been tested.
