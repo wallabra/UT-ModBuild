@@ -1,12 +1,12 @@
 PACKAGE_NAME ?= MyMod
 PACKAGE_ROOT ?= .
 BUILD_DIR ?= build
-DIR_DEPS ?= $(MUSHMATCH_BUILD)/deps
-DIR_TARG = $(MUSHMATCH_BUILD)/ut-server
+DIR_DEPS ?= $(BUILD_DIR)/deps
+DIR_TARG = $(BUILD_DIR)/ut-server
 DIR_TARG_PACKAGE = $(DIR_TARG)/$(PACKAGE_NAME)
 BUILD_LOG ?= ./build.log
 MUSTACHE ?= mustache
-DIR_DIST = $(MUSHMATCH_BUILD)/dist
+DIR_DIST = $(BUILD_DIR)/dist
 CAN_DOWNLOAD ?= 1
 DESTDIR ?= ..
 SHELL = bash
@@ -90,7 +90,7 @@ $(DIR_TARG)/System/ucc-bin: | auto-download expect-cmd-tar expect-cmd-gunzip exp
 	echo '=== Extracting and setting up...' ;\
 	[[ -d "$(DIR_TARG)" ]] && rm -rv "$(DIR_TARG)" ;\
 	mkdir -p "$(DIR_TARG)" ;\
-	tar xzmvf "$(DIR_DEPS)/ut-server-linux-436.tar.gz" --overwrite -C "$(MUSHMATCH_BUILD)" ;\
+	tar xzmvf "$(DIR_DEPS)/ut-server-linux-436.tar.gz" --overwrite -C "$(BUILD_DIR)" ;\
 	tar xjpmvf "$(DIR_DEPS)/OldUnreal-UTPatch469b-Linux.tar.bz2" --overwrite -C "$(DIR_TARG)" ;\
 	ln -sf -T "$(shell realpath $(PACKAGE_ROOT))" "$(DIR_TARG)/$(PACKAGE_NAME)" ;\
 	echo Done.
