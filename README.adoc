@@ -340,7 +340,7 @@ Hopefully this achieves in that goal.
 Files in the top level that pertian to the UT ModBuild build system are
 licensed under the ISC. For those, see the [LICENSE.md] file.
 
-==== Legal Copyright Disclaimer
+=== Legal Copyright Disclaimer
 
 The build system does, indeed, download a bare copy of Unreal Tournament (1999), which is
 meant to have only the minimum assets required to run as a server. Due to its free availability
