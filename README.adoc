@@ -255,7 +255,7 @@ Here are the options for `buildconfig.sh`:
 
 
 [#versioning]
-== Versioning
+=== Versioning
 
 This is more of a general guideline or rule of thumb. UT ModBuild is useful
 to help you version each package without having to edit source code files
