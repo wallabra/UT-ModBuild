@@ -244,7 +244,7 @@ Here are the options for `buildconfig.sh`:
         https://github.com/Gustavo6046/MushMatch/blob/05e3d504273ce09167a44748d801d0702b7df1eb/Classes/MushMatch.uc#L982[display the build number]
         within the gametype's very name only in debug builds:
         +
-        [source,ini]
+        [source]
         ----
         GameName="Mush Match {{{version}}}{{{namesuffix}}}"
         ----
@@ -305,7 +305,7 @@ Here are the notable options:
   * A special `namesuffix` variable is created. If `debug` is set to 0, it's
     empty. Otherwise, it is set to a single space, followed by the build number
     in parentheses, like ` (20214201)`.
-
+    +
     This is useful to e.g. add in front of mutator names in the INT template,
     and gametype names in UnrealScript. The former is exemplified in this
     example `tempate.int`; the latter can be seen in any prerelease Mush Match
