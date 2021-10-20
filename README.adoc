@@ -249,10 +249,11 @@ Here are the options for `buildconfig.sh`:
         Mush Match uses this in its Mustache-templated UnrealScript to
         https://github.com/Gustavo6046/MushMatch/blob/05e3d504273ce09167a44748d801d0702b7df1eb/Classes/MushMatch.uc#L982[display the build number]
         within the gametype's very name only in debug builds:
-        [source]
-        ----
-        GameName="Mush Match {{{version}}}{{{namesuffix}}}"
-        ----
+        +
+[source]
+-----
+GameName="Mush Match {{{version}}}{{{namesuffix}}}"
+-----
 
 
 [#versioning]
