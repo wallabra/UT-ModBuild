@@ -948,14 +948,18 @@ Edit the block of variables in <code>buildconfig.sh</code> to reflect your mod. 
 </p>
 </li>
 </ol></div>
+<div class="paragraph"><p>Keep in mind that other</p></div>
 </div>
 <div class="sect2">
 <h3 id="_new_mod">4.2. New Mod</h3>
-<div class="paragraph"><p>If you&#8217;re creating a new mod, you can simply checkout this template, edit <code>buildconfig.sh</code> to
-reflect your new mod, and <code>template.int</code> to change your mod&#8217;s .int file.</p></div>
-<div class="paragraph"><p>Templates can take valus from both <code>buildconfig.sh</code> and <code>template-options.yml</code> files, though
+<div class="paragraph"><p>If you&#8217;re creating a new mod, you can simply fork this template, edit <code>buildconfig.sh</code> to
+reflect your new mod, and <code>template.int</code> to change your mod&#8217;s .int file. Also edit <code>PACKAGE_NAME</code>
+at the top of the <code>Makefile</code> accordingly.</p></div>
+<div class="paragraph"><p>Templates can take values from both <code>buildconfig.sh</code> and <code>template-options.yml</code> files, though
 the value <code>{{package}}</code> will automatically include the build number suffix
 (e.g. <code>MyMod-20214201</code>).</p></div>
+<div class="paragraph"><p>Other folders supported by the build system include <code>Models</code>, <code>Textures</code> and <code>Sounds</code>. They&#8217;re
+simply copied when building, unlike <code>Classes</code>, whose contents are formatted.</p></div>
 <div class="paragraph"><p>For more info on template values, see <a href="#template-values">[template-values]</a></p></div>
 </div>
 <div class="sect1">
@@ -1076,7 +1080,7 @@ debug
         <a href="https://github.com/Gustavo6046/MushMatch/blob/05e3d504273ce09167a44748d801d0702b7df1eb/Classes/MushMatch.uc#L982">display the build number</a>
         within the gametype&#8217;s very name only in debug builds:
        <br />
-        [source,ini]
+        [source]
         ----
         ----
 </p>
@@ -1138,15 +1142,13 @@ those.</p></div>
 <p>
 A special <code>namesuffix</code> variable is created. If <code>debug</code> is set to 0, it&#8217;s
     empty. Otherwise, it is set to a single space, followed by the build number
-    in parentheses, like ` (20214201)`.
+    in parentheses, like ` (20214201)<code>.
+    +
+    This is useful to e.g. add in front of mutator names in the INT template,
+    and gametype names in UnrealScript. The former is exemplified in this
+    example `tempate.int</code>; the latter can be seen in any prerelease Mush Match
+    build.
 </p>
-<div class="literalblock">
-<div class="content">
-<pre><code>This is useful to e.g. add in front of mutator names in the INT template,
-and gametype names in UnrealScript. The former is exemplified in this
-example `tempate.int`; the latter can be seen in any prerelease Mush Match
-build.</code></pre>
-</div></div>
 </li>
 </ul></div>
 <div class="paragraph"><p>The list of values that can be used from buildconfig.sh are <code>name</code>, <code>version</code>,
@@ -1200,7 +1202,7 @@ Brazilian justice system for appropriate research and proceedings.</p></div>
 <div id="footer">
 <div id="footer-text">
 Last updated
- 2021-10-20 20:23:03 -03
+ 2021-10-20 20:28:10 -03
 </div>
 </div>
 </body>

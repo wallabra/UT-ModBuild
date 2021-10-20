@@ -150,15 +150,21 @@ prior to starting.
     should be intuitive and simple enough, but the <<build-config>> section
     gives some explanation for completeness's sake.
 
+Keep in mind that other 
+
 
 === New Mod
 
-If you're creating a new mod, you can simply checkout this template, edit `buildconfig.sh` to
-reflect your new mod, and `template.int` to change your mod's .int file.
+If you're creating a new mod, you can simply fork this template, edit `buildconfig.sh` to
+reflect your new mod, and `template.int` to change your mod's .int file. Also edit `PACKAGE_NAME`
+at the top of the `Makefile` accordingly.
 
-Templates can take valus from both `buildconfig.sh` and `template-options.yml` files, though
+Templates can take values from both `buildconfig.sh` and `template-options.yml` files, though
 the value `{{package}}` will automatically include the build number suffix
 (e.g. `MyMod-20214201`).
+
+Other folders supported by the build system include `Models`, `Textures` and `Sounds`. They're
+simply copied when building, unlike `Classes`, whose contents are formatted.
 
 For more info on template values, see <<template-values>>
 
@@ -243,7 +249,6 @@ Here are the options for `buildconfig.sh`:
         Mush Match uses this in its Mustache-templated UnrealScript to
         https://github.com/Gustavo6046/MushMatch/blob/05e3d504273ce09167a44748d801d0702b7df1eb/Classes/MushMatch.uc#L982[display the build number]
         within the gametype's very name only in debug builds:
-        +
         [source]
         ----
         GameName="Mush Match {{{version}}}{{{namesuffix}}}"
