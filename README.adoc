@@ -31,8 +31,8 @@ strengths, ~and an exercise in humility~. See:
   * *Does not work natively on Windows*: you will need WSL, or Cygwin or Msys2,
     or even a virtual machine or container. This build system is built around
     Linux, in and out. _This does not mean you cannot use it from Windows_, but
-    will require an environment that is compatible with what you see in Linux,
-    including Bash.
+    if you want to build locally, it will require an environment that is
+    compatible with what you see in Linux, including Bash. Or, just use CI!
 
   * This build system requires *installing Go*, precisely because of Mustache.
     Golang is a bit of a heft, and I can understand why this can be a turn-off
