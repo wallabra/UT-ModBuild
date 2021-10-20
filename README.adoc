@@ -251,9 +251,7 @@ Here are the options for `buildconfig.sh`:
         within the gametype's very name only in debug builds:
         +
 [source,ini]
------
-GameName="Mush Match {{{version}}}{{{namesuffix}}}"
------
+        GameName="Mush Match {{{version}}}{{{namesuffix}}}"
 
 
 [#versioning]
