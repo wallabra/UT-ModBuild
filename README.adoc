@@ -205,6 +205,7 @@ Here are the options for `buildconfig.sh`:
         Self-explanatory, the name of your package internally.
 
     version::
+        ====
         Self-explanatory, the human-friendly version string of your mod.
 
         I personally recommend sticking to
@@ -213,8 +214,10 @@ Here are the options for `buildconfig.sh`:
         number.
 
         See <<versioning>> for more info and guidelines on, well, versioning.
+        ====
 
     build::
+        ====
         A build number, more internal than the version number.
 
         A good build number format, which is used in Mush Match and also the
@@ -234,8 +237,10 @@ Here are the options for `buildconfig.sh`:
 
         You don't have to do it this way. Do it however you want if you'd rather!
         See <<versioning>> for more info and guidelines on it.
+        ====
 
     debug::
+        ====
         Whether this is the full release, or a pre-release. See <<versioning>>
         on why you'd want this and how to do that.
 
@@ -246,6 +251,7 @@ Here are the options for `buildconfig.sh`:
         ```
         GameName="Mush Match {{{version}}}{{{namesuffix}}}"
         ```
+        ====
 
 
 [##versioning]
