@@ -254,7 +254,7 @@ https://github.com/Gustavo6046/MushMatch/blob/05e3d504273ce09167a44748d801d0702b
 within the gametype's very name only in debug builds:
 +
 [source,ini]
-    GameName="Mush Match {{{version}}}{{{namesuffix}}}"
+GameName="Mush Match {{{version}}}{{{namesuffix}}}"
 
 
 [[versioning,Versioning]]
