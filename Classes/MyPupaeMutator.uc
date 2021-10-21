@@ -115,11 +115,11 @@ function bool CanBePupaed(Pawn Target, Pawn Instigator) {
     }
 
     // Don't spawn Pupae on team damage.
-    if (
+    if (Level.Game.bTeamGame && (
         Target.PlayerReplicationInfo        != None &&
         Instigator.PlayerReplicationInfo    != None &&
         Target.PlayerReplicationInfo.Team   == Instigator.PlayerReplicationInfo.Team
-    ) {
+    )) {
         return false;
     }
 
