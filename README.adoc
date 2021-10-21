@@ -117,7 +117,7 @@ You can then use `DESTDIR=/path/to/my/UnrealTournament make install` to install
 the mod.
 
 
-[#applying]
+[[applying,How to Apply]]
 == How to Apply
 
 Using this template depends on whether you're adapting for an existing mod or
@@ -174,7 +174,7 @@ For more info on template values, see <<template-values>>
 
 Miscellaneous tidbits of documentation for completeness's sake.
 
-[#auto-release]
+[[auto-release,Auto-Releases]]
 === Auto-Releases
 
 For your convenience, UT ModBuild includes a CI workflow file; more precisely,
@@ -201,61 +201,61 @@ NOTE: Automatic releases will always be set as drafts. To actually publish them,
 press _Edit_, then near the bottom _Publish release_.
 
 
-[#build-config]
+[[build-config,Build Configuration]]
 === Build Configuration
 
 Here are the options for `buildconfig.sh`:
 
-    name::
-        Self-explanatory, the human-friendly name of your mod.
+name::
+    Self-explanatory, the human-friendly name of your mod.
 
-    package::
-        Self-explanatory, the name of your package internally.
+package::
+    Self-explanatory, the name of your package internally.
 
-    version::
-        Self-explanatory, the human-friendly version string of your mod.
-        +
-        I personally recommend sticking to
-        https://semver.org/[Semantic Versioning], as does MushMatch, to be able
-        to actually properly express the size of an update by its version
-        number.
-        +
-        See <<versioning>> for more info and guidelines on, well, versioning.
+version::
+    Self-explanatory, the human-friendly version string of your mod.
+    +
+    I personally recommend sticking to
+    https://semver.org/[Semantic Versioning], as does MushMatch, to be able
+    to actually properly express the size of an update by its version
+    number.
+    +
+    See <<versioning>> for more info and guidelines on, well, versioning.
 
-    build::
-        A build number, more internal than the version number.
-        +
-        A good build number format, which is used in Mush Match and also the
-        default one here, is *YYYYWWBB*, where
-        +
-          * _YYYY_ is the year,
+build::
+    A build number, more internal than the version number.
+    +
+    A good build number format, which is used in Mush Match and also the
+    default one here, is *YYYYWWBB*, where
+    +
+  * _YYYY_ is the year,
 
-          * _WW_ is the https://en.wikipedia.org/wiki/ISO_week_date[ISO] week 
-            number (e.g. Wed., October 20, 2021 will have a WW of _42_, but
-            Sun., October 17, 2021 will have a WW of _41_, since ISO weeks
-            start on Mondays);
+  * _WW_ is the https://en.wikipedia.org/wiki/ISO_week_date[ISO] week 
+    number (e.g. Wed., October 20, 2021 will have a WW of _42_, but
+    Sun., October 17, 2021 will have a WW of _41_, since ISO weeks
+    start on Mondays);
 
-          * _BB_ is a suffix to discern from previous builds in the same week.
-        +
-        This format is very similar, for example, to what is used in
-        Minecraft's snapshot versioning format.
-        +
-        You don't have to do it this way. Do it however you want if you'd rather!
-        See <<versioning>> for more info and guidelines on it.
+  * _BB_ is a suffix to discern from previous builds in the same week.
+    +
+    This format is very similar, for example, to what is used in
+    Minecraft's snapshot versioning format.
+    +
+    You don't have to do it this way. Do it however you want if you'd rather!
+    See <<versioning>> for more info and guidelines on it.
 
-    debug::
-        Whether this is the full release, or a pre-release. See <<versioning>>
-        on why you'd want this and how to do that.
-        +
-        Mush Match uses this in its Mustache-templated UnrealScript to
-        https://github.com/Gustavo6046/MushMatch/blob/05e3d504273ce09167a44748d801d0702b7df1eb/Classes/MushMatch.uc#L982[display the build number]
-        within the gametype's very name only in debug builds:
-        +
+debug::
+    Whether this is the full release, or a pre-release. See <<versioning>>
+    on why you'd want this and how to do that.
+    +
+    Mush Match uses this in its Mustache-templated UnrealScript to
+    https://github.com/Gustavo6046/MushMatch/blob/05e3d504273ce09167a44748d801d0702b7df1eb/Classes/MushMatch.uc#L982[display the build number]
+    within the gametype's very name only in debug builds:
+    +
 [source,ini]
-        GameName="Mush Match {{{version}}}{{{namesuffix}}}"
+    GameName="Mush Match {{{version}}}{{{namesuffix}}}"
 
 
-[#versioning]
+[[versioning,Versioning]]
 === Versioning
 
 This is more of a general guideline or rule of thumb. UT ModBuild is useful
@@ -289,8 +289,8 @@ builds, to avoid the classic and frustrating Package Mismatch errors you can
 get if multiple versions of a mod are floating around with the same filename.
 
 
-[#template-values]
-== Template Values
+[[template-values,Template Values]]
+=== Template Values
 
 UT ModBuild uses the Mustache template engine to process not only `template.int`,
 but also _every single UnrealScript file you use_. This can be very powerful,
@@ -310,11 +310,11 @@ Here are the notable options:
   * A special `namesuffix` variable is created. If `debug` is set to 0, it's
     empty. Otherwise, it is set to a single space, followed by the build number
     in parentheses, like ` (20214201)`.
-    +
-    This is useful to e.g. add in front of mutator names in the INT template,
-    and gametype names in UnrealScript. The former is exemplified in this
-    example `tempate.int`; the latter can be seen in any prerelease Mush Match
-    build.
++
+This is useful to e.g. add in front of mutator names in the INT template,
+and gametype names in UnrealScript. The former is exemplified in this
+example `tempate.int`; the latter can be seen in any prerelease Mush Match
+build.
 
 The list of values that can be used from buildconfig.sh are `name`, `version`,
 `package` (but see above), `version` and `debug`. Most don't go through any
