@@ -102,6 +102,11 @@ function bool CanBePupaed(Pawn Target, Pawn Instigator) {
 
     Attitude = Target.AttitudeToPlayer;
 
+    // Do not spawn Pupae from being damaged by a Pupae!
+    if (Pupae(Instigator) != None) {
+        return false;
+    }
+
     // Only spawn Pupae around players, or active members of the match,
     // or (for a bit of fun) if damaging innocent little monsters.
     if (!Target.bIsPlayer) {
