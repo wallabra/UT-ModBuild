@@ -5,9 +5,9 @@
 
 export name="My Mod"
 export package=MyMod
-export build=20214201
-export version=1.0.0
-export debug=0
+export build=20214203
+export version=1.0.1
+export debug=1
 
 # It is most likely unnecessary to edit the below defaults. The scripts
 # in the build/ subdirectory provide a sufficiently predictable build environment.

@@ -21,6 +21,14 @@ var()   config float
     SpawnOffsetMax;
 
 
+
+function PreBeginPlay()
+{
+    Super.PreBeginPlay();
+    Level.Game.RegisterDamageMutator(Self);
+}
+
+
 /**
  * @brief Entry point for a mutator to handle damage. This is where we check to spawn Pupae!
  *
@@ -55,6 +63,13 @@ function MutatorTakeDamage(out int ActualDamage, Pawn Victim, Pawn InstigatedBy,
 
     // Find out how many pupae we want to spawn!
     NumPupae = (ActualDamage - ActualDamage % DamagePerPupae) / DamagePerPupae;
+
+    // Chance to add more pupae for any remainder of damage that is not a multiple of DamgePerPupae
+    if (ActualDamage % DamagePerPupae >= FRand() * DamagePerPupae) {
+        NumPupae++;
+    }
+
+    Log(Self @"saw"@ ActualDamage @"damage on"@ Victim $", wants to add"@ NumPupae @"pupae");
 
     // Spawn each one of the desired amount! Or as many as we can.
     // Whichever limit we hit first.
