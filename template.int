@@ -1,4 +1,4 @@
 [Public]
 {{#mutators}}
-Object=(Name={{{package}}}-{{{build}}}.{{{class}}},Class=Class,MetaClass=Engine.Mutator, Description="{{{name}}} v{{{version}}}{{{name suffix}}},{{{description}}}")
+Object=(Name={{{package}}}.{{{class}}},Class=Class,MetaClass=Engine.Mutator,Description="{{{name}}} v{{{version}}}{{{name suffix}}},{{{description}}}")
 {{/mutators}}
