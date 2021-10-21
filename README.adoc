@@ -214,42 +214,45 @@ package::
 
 version::
     Self-explanatory, the human-friendly version string of your mod.
-    +
-    I personally recommend sticking to
-    https://semver.org/[Semantic Versioning], as does MushMatch, to be able
-    to actually properly express the size of an update by its version
-    number.
-    +
-    See <<versioning>> for more info and guidelines on, well, versioning.
++
+I personally recommend sticking to
+https://semver.org/[Semantic Versioning], as does MushMatch, to be able
+to actually properly express the size of an update by its version
+number.
++
+See <<versioning>> for more info and guidelines on, well, versioning.
 
 build::
     A build number, more internal than the version number.
-    +
-    A good build number format, which is used in Mush Match and also the
-    default one here, is *YYYYWWBB*, where
-    +
-  * _YYYY_ is the year,
++
+A good build number format, which is used in Mush Match and also the
+default one here, is *YYYYWWBB*, where
++
+--
+* _YYYY_ is the year,
 
-  * _WW_ is the https://en.wikipedia.org/wiki/ISO_week_date[ISO] week 
-    number (e.g. Wed., October 20, 2021 will have a WW of _42_, but
-    Sun., October 17, 2021 will have a WW of _41_, since ISO weeks
-    start on Mondays);
+* _WW_ is the https://en.wikipedia.org/wiki/ISO_week_date[ISO] week 
+number (e.g. Wed., October 20, 2021 will have a WW of _42_, but
+Sun., October 17, 2021 will have a WW of _41_, since ISO weeks
+start on Mondays);
 
-  * _BB_ is a suffix to discern from previous builds in the same week.
-    +
-    This format is very similar, for example, to what is used in
-    Minecraft's snapshot versioning format.
-    +
-    You don't have to do it this way. Do it however you want if you'd rather!
-    See <<versioning>> for more info and guidelines on it.
+* _BB_ is a suffix to discern from previous builds in the same week.
+--
++
+This format is very similar, for example, to what is used in
+Minecraft's snapshot versioning format.
++
+You don't have to do it this way. Do it however you want if you'd rather!
+See <<versioning>> for more info and guidelines on it.
 
 debug::
     Whether this is the full release, or a pre-release. See <<versioning>>
     on why you'd want this and how to do that.
-    +
-    Mush Match uses this in its Mustache-templated UnrealScript to
-    https://github.com/Gustavo6046/MushMatch/blob/05e3d504273ce09167a44748d801d0702b7df1eb/Classes/MushMatch.uc#L982[display the build number]
-    within the gametype's very name only in debug builds:
++
+Mush Match uses this in its Mustache-templated UnrealScript to
+https://github.com/Gustavo6046/MushMatch/blob/05e3d504273ce09167a44748d801d0702b7df1eb/Classes/MushMatch.uc#L982[display the build number]
+within the gametype's very name only in debug builds:
++
 [source,ini]
     GameName="Mush Match {{{version}}}{{{namesuffix}}}"
 
