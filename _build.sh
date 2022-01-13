@@ -2,7 +2,8 @@
 
 source ./buildconfig.sh
 
-MUSTACHE="${MUSTACHE?-mustache}"
+echo $MUSTACHE_BIN
+MUSTACHE="${MUSTACHE_BIN?-mustache}"
 
 TMP_YML="$(mktemp)"
 TMP_INI="$(mktemp)"
@@ -42,7 +43,7 @@ cleanup() {
         cat "$package/template-options.yml" >> "$TMP_YML"
 
         # Copy assets
-        for asset in Models Textures Sounds; do
+        for asset in Models/ Textures/ Sounds/; do
             if [[ -d "$package"/"$asset" ]]; then
             cp -rv "$package"/"$asset" "$packagefull"
             fi

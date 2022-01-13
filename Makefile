@@ -118,7 +118,7 @@ download: $(DIR_DEPS)/ut-server-linux-436.tar.gz $(DIR_DEPS)/OldUnreal-UTPatch46
 
 configure: $(DIR_TARG)/System/ucc-bin
 
-build: $(DIR_DIST)/$(PACKAGE_NAME)/$(BUILD_NUM)/$(PACKAGE_NAME)-$(BUILD_NUM).zip
+build: find-mustache $(DIR_DIST)/$(PACKAGE_NAME)/$(BUILD_NUM)/$(PACKAGE_NAME)-$(BUILD_NUM).zip
 
 install: $(DESTDIR)/System/$(PACKAGE_NAME)-$(BUILD_NUM).u
 
