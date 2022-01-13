@@ -2,8 +2,7 @@
 
 source ./buildconfig.sh
 
-echo $MUSTACHE_BIN
-MUSTACHE="${MUSTACHE_BIN?-mustache}"
+MUSTACHE="${MUSTACHE?-mustache}"
 
 TMP_YML="$(mktemp)"
 TMP_INI="$(mktemp)"
