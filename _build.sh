@@ -86,7 +86,7 @@ cleanup() {
         # Include extra assets (map, sound and texture packages)
         x_array=()
         
-        for x_asset in "Maps" "Sounds" "Textures"; do
+        for x_asset in "Maps" "Sounds" "Textures" "Music"; do
             if [[ -d "$projroot/Extra/$x_asset" ]]; then
                 for fname in "$projroot/Extra/$x_asset/"*; do
                     cp "$fname" "$x_asset"
