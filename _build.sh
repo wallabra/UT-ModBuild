@@ -2,8 +2,6 @@
 
 source ./buildconfig.sh
 
-projroot="$(pwd)"
-
 MUSTACHE="${MUSTACHE?-mustache}"
 
 TMP_YML="$(mktemp)"
@@ -87,8 +85,8 @@ cleanup() {
         x_array=()
         
         for x_asset in "Maps" "Sounds" "Textures" "Music"; do
-            if [[ -d "$projroot/Extra/$x_asset" ]]; then
-                for fname in "$projroot/Extra/$x_asset/"*; do
+            if [[ -d "Extra/$x_asset" ]]; then
+                for fname in Extra/"$x_asset"/*; do
                     if [[ "$fname" == ".gitignore" ]]; then
                         continue
                     fi
