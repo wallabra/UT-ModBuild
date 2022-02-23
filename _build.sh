@@ -89,6 +89,10 @@ cleanup() {
         for x_asset in "Maps" "Sounds" "Textures" "Music"; do
             if [[ -d "$projroot/Extra/$x_asset" ]]; then
                 for fname in "$projroot/Extra/$x_asset/"*; do
+                    if [[ "$fname" == ".gitignore" ]]; then
+                        continue
+                    fi
+
                     cp -vf "$fname" "$x_asset"
                     x_array+=("$x_asset/$fname")
                 done
