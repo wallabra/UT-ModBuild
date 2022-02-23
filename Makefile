@@ -31,7 +31,7 @@ expect-cmd-%:
 	exit 2; fi
 
 find-mustache: | expect-cmd-curl expect-cmd-tar expect-cmd-gunzip expect-cmd-realpath
-	$(eval MUSTACHE_BIN=$(shell if which "$(MUSTACHE)" >/dev/null ; then \
+	$(eval MUSTACHE_BIN=$(shell if which "$(MUSTACHE)" 2>&1 >/dev/null ; then \
 	  echo ${MUSTACHE} ;\
 	elif [ -f $(DIR_DEPS)/mustache ] ; then \
 	  realpath "${DIR_DEPS}/mustache" ;\
