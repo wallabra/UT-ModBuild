@@ -2,6 +2,8 @@
 
 source ./buildconfig.sh
 
+projroot="$(pwd)"
+
 MUSTACHE="${MUSTACHE?-mustache}"
 
 TMP_YML="$(mktemp)"
@@ -17,8 +19,6 @@ cleanup() {
 ( # Subshell to preserve original working dir
     cat "$makeini">"$TMP_INI"
     echo EditPackages="$packagefull">>"$TMP_INI"
-
-    projroot="$(pwd)"
 
     cd "$utdir"
 
