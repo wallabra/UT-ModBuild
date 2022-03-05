@@ -95,8 +95,10 @@ cleanup() {
         code=$?; [[ $code == 0 ]] || exit $code
 
         # Format .int with Mustache
-        echo "Formatting: System/$package.int"
-        "$MUSTACHE" "$package/template.int" < "$TMP_YML" > "System/$packagefull.int"
+        if [[ "$makeint" == "1" ]]; then
+            echo "Formatting: System/$package.int"
+            "$MUSTACHE" "$package/template.int" < "$TMP_YML" > "System/$packagefull.int"
+        fi
 
         # Package up
         cp -f "$package/README.adoc" "Help/$package.adoc"

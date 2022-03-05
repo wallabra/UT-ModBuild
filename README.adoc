@@ -256,6 +256,13 @@ within the gametype's very name only in debug builds:
 [source,ini]
 GameName="Mush Match {{{version}}}{{{namesuffix}}}"
 
+makeint::
+    Whether a .int file should be built for this mod.
++
+This should be True for mutators and most other kinds of mods. If this is a
+pure package build, e.g. a sub-build of a larger mod, and no .int file is
+necessary, makeint may be set to 0.
+
 
 [[versioning,Versioning]]
 === Versioning
