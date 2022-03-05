@@ -57,6 +57,23 @@ cleanup() {
             "$MUSTACHE" "$package/Classes/$class" < "$TMP_YML" > "$packagefull/Classes/$class"
         done
 
+        # Include extra assets (map, sound and texture packages)
+        # Do this before building because extra packages here may be referenced by the code.
+        x_array=()
+        
+        for x_asset in "Maps" "Sounds" "Textures" "Music"; do
+            if [[ -d "Extra/$x_asset" ]]; then
+                for fname in Extra/"$x_asset"/*; do
+                    if [[ "$fname" == ".gitignore" ]]; then
+                        continue
+                    fi
+
+                    cp -vf "$fname" "$x_asset"
+                    x_array+=("$x_asset/$fname")
+                done
+            fi
+        done
+
         # Build .u
         (
             cd System
@@ -80,22 +97,6 @@ cleanup() {
         # Format .int with Mustache
         echo "Formatting: System/$package.int"
         "$MUSTACHE" "$package/template.int" < "$TMP_YML" > "System/$packagefull.int"
-
-        # Include extra assets (map, sound and texture packages)
-        x_array=()
-        
-        for x_asset in "Maps" "Sounds" "Textures" "Music"; do
-            if [[ -d "Extra/$x_asset" ]]; then
-                for fname in Extra/"$x_asset"/*; do
-                    if [[ "$fname" == ".gitignore" ]]; then
-                        continue
-                    fi
-
-                    cp -vf "$fname" "$x_asset"
-                    x_array+=("$x_asset/$fname")
-                done
-            fi
-        done
 
         # Package up
         cp -f "$package/README.adoc" "Help/$package.adoc"
