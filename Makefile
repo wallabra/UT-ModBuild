@@ -126,10 +126,10 @@ build: find-mustache $(DIR_DIST)/$(PACKAGE_NAME)/$(BUILD_NUM)/$(PACKAGE_NAME)-$(
 install: $(DESTDIR)/System/$(PACKAGE_NAME)-$(BUILD_NUM).u
 
 clean-downloads:
-	rm deps/*
+	rm $(DIR_DEPS)/*
 
 clean-tree:
-	rm -rv ut-server
+	rm -rv $(DIR_TARG)
 
 clean: clean-downloads clean-tree
 
