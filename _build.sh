@@ -94,7 +94,7 @@ cleanup() {
         )
         code=$?; [[ $code == 0 ]] || exit $code
 
-        pkg_members=("$packagefull.tar" "System/$packagefull.u" "${x_array[@]}")
+        pkg_members=("System/$packagefull.u" "${x_array[@]}")
 
         # Format .int with Mustache
         if [[ "$makeint" == "1" ]]; then
