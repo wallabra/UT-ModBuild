@@ -95,14 +95,22 @@ cleanup() {
         code=$?; [[ $code == 0 ]] || exit $code
 
         # Format .int with Mustache
+        INT=""
         if [[ "$makeint" == "1" ]]; then
             echo "Formatting: System/$package.int"
             "$MUSTACHE" "$package/template.int" < "$TMP_YML" > "System/$packagefull.int"
+            INT="System/$packagefull.int"
+        fi
+
+        # Include readme inside Help/
+        HELP_README=""
+        if [[ "$incl_readme" == "1" ]]; then
+            cp -f "$package/README.adoc" "Help/$package.adoc"
+            HELP_README="Help/$package.adoc"
         fi
 
         # Package up
-        cp -f "$package/README.adoc" "Help/$package.adoc"
-        tar cf "$packagefull.tar" "System/$packagefull.int" "System/$packagefull.u" "Help/$package.adoc" "${x_array[@]}"
+        tar cf "$packagefull.tar" "System/$packagefull.u" "$INT" "$HELP_README" "${x_array[@]}"
 
         zip -9r "$packagefull.zip" "System/$packagefull.int" "System/$packagefull.u" "Help/$package.adoc" >/dev/null
         gzip --best -k "$packagefull.tar"

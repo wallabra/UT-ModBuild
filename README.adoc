@@ -263,6 +263,10 @@ This should be True for mutators and most other kinds of mods. If this is a
 pure package build, e.g. a sub-build of a larger mod, and no .int file is
 necessary, makeint may be set to 0.
 
+incl_readme::
+    Whether the README.adoc file should be included as a document
+    within `Help/` in the packaged up zip file for distribution.
+
 
 [[versioning,Versioning]]
 === Versioning
