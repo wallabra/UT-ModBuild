@@ -1,0 +1,19 @@
+stages:
+-   sast
+-   build
+
+build-job:
+    stage: build
+    cache:
+    -   key:    ["Makefile"]
+        paths:  ["build/deps"]
+
+    script:
+    -   make
+
+sast:
+    stage: sast
+
+include:
+-   template: Security/SAST.gitlab-ci.yml
+
