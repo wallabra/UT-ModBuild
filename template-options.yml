@@ -1,0 +1,4 @@
+mutators:
+  - class: MyPupaeMutator
+    name: My Pupae Mutator
+    description: Does things that only a mutator of mine would, such as discomcombulating splines and spawning Pupae on damage!

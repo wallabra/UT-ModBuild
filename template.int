@@ -1,0 +1,4 @@
+[Public]
+{{#mutators}}
+Object=(Name={{{package}}}.{{{class}}},Class=Class,MetaClass=Engine.Mutator,Description="{{{name}}} v{{{version}}}{{{namesuffix}}},{{{description}}}")
+{{/mutators}}
