@@ -1,3 +1,6 @@
+default:
+    image: alpine:3.14
+
 stages:
 -   sast
 -   build
@@ -9,6 +12,7 @@ build-job:
         paths:  ["build/deps"]
 
     script:
+    -   apk add --no-cache curl zip tar gzip bash bz2
     -   make
 
 sast:
