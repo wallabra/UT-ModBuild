@@ -5,7 +5,7 @@ stages:
 build-job:
     stage: build
     cache:
-    -   key:    ["Makefile"]
+    -   key:    "Makefile"
         paths:  ["build/deps"]
 
     script:
