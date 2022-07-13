@@ -12,7 +12,7 @@ build-job:
         paths:  ["build/deps"]
 
     script:
-    -   apk add --no-cache curl zip tar gzip bash bzip2
+    -   apk add --no-cache curl zip tar gzip bash bzip2 make
     -   make
 
 sast:

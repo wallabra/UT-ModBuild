@@ -88,8 +88,8 @@ NOTE: This requires Linux or a Linux-like environment.
 === Prerequisites
 
 If you want to build from source, make sure you have the build dependencies
-beforehand. You most likely already have `curl`, `zip`, `tar`, `gzip`, `bash`
-and `bz2`.
+beforehand. You most likely already have `curl`, `zip`, `tar`, `gzip`, `bash`,
+and `bzip2`, as well as GNU make.
 
 Optionally, you may install a Go package named `mustache`, however if it's not
 found on your `$PATH` already, a pre-compiled binary will be downloaded on
