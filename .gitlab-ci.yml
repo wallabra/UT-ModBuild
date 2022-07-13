@@ -13,7 +13,7 @@ build-job:
 
     script:
     -   apk add --no-cache curl zip tar gzip bash bzip2 make
-    -   make || ( cat build.log && exit 1 )
+    -   make
 
 sast:
     stage: sast
