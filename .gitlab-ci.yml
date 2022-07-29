@@ -3,7 +3,6 @@ default:
 
 stages:
   - getinfo
-  - lockfile
   - build
 
 getinfo:
@@ -44,4 +43,3 @@ build-job:
 
     dependencies:
       - getinfo
-      - lockfile
