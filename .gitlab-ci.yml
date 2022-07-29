@@ -29,7 +29,7 @@ build-job:
 
     script:
       - apt-get update
-      - apt-get install -y curl zip tar gzip bash bzip2 make
+      - apt-get install -y curl zip tar gzip bash bzip2 make file
       - make
 
     artifacts:
