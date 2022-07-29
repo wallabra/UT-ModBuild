@@ -37,4 +37,4 @@ build-job:
         - build/dist/$PACKAGE/latest/
 
     dependencies:
-      - build
+      - getinfo
