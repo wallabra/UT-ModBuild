@@ -94,7 +94,7 @@ generate-deps-lockfile: | auto-download
 	sha512sum "$(DIR_DEPS)/"* >"$(PACKAGE_ROOT)"/deps.lock ;\
 	echo Done.
 
-$(DIR_TARG)/System/ucc-bin: | auto-download expect-cmd-tar expect-cmd-gunzip expect-cmd-bunzip2
+$(DIR_TARG)/System/ucc-bin: | generate-deps-lockfile expect-cmd-tar expect-cmd-gunzip expect-cmd-bunzip2
 	echo '=== Extracting and setting up...' ;\
 	[[ -d "$(DIR_TARG)" ]] && rm -rv "$(DIR_TARG)" ;\
 	mkdir -p "$(DIR_TARG)" ;\

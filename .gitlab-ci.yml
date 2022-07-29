@@ -22,23 +22,6 @@ getinfo:
       reports:
         dotenv: build.env
 
-lockfile:
-    stage: lockfile
-    cache:
-      - key:
-            files:
-              - Makefile
-        paths:  ["build/deps"]
-
-    script:
-      - dpkg --add-architecture i386
-      - apt-get update
-      - apt-get install -y curl zip bzip2 make
-      - make generate-deps-lockfile
-
-    artifacts:
-        name: "Dependency lockfile"
-
 build-job:
     stage: build
 
@@ -51,7 +34,7 @@ build-job:
     script:
       - dpkg --add-architecture i386
       - apt-get update
-      - apt-get install -y libc6:i386
+      - apt-get install -y libc6:i386 curl zip bzip2 make
       - make
 
     artifacts:
