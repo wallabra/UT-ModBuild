@@ -89,6 +89,11 @@ endif
 
 auto-download: $(if $(filter 1 true,$(CAN_DOWNLOAD)), $(DIR_DEPS)/ut-server-linux-436.tar.gz $(DIR_DEPS)/OldUnreal-UTPatch469b-Linux.tar.bz2 find-mustache, cannot-download)
 
+generate-deps-lockfile: | auto-download
+	echo '=== Generating lockfile of downloaded dependencies...' ;\
+	sha512sum "$(DIR_DEPS)/"* >"$(PACKAGE_ROOT)"/deps.lock ;\
+	echo Done.
+
 $(DIR_TARG)/System/ucc-bin: | auto-download expect-cmd-tar expect-cmd-gunzip expect-cmd-bunzip2
 	echo '=== Extracting and setting up...' ;\
 	[[ -d "$(DIR_TARG)" ]] && rm -rv "$(DIR_TARG)" ;\
@@ -132,6 +137,8 @@ clean-tree:
 	rm -rv $(DIR_TARG)
 
 clean: clean-downloads clean-tree
+
+genlock: generate-deps-lockfile
 
 .PHONY: configure build download install auto-download cannot-download expect-cmd-% clean clean-downloads clean-tree
 .SILENT:

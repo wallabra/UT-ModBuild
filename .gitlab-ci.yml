@@ -3,6 +3,7 @@ default:
 
 stages:
   - getinfo
+  - lockfile
   - build
 
 getinfo:
@@ -21,10 +22,27 @@ getinfo:
       reports:
         dotenv: build.env
 
+generate-lockfile:
+    stage: lockfile
+    cache:
+      - key:
+            files:
+              - Makefile
+        paths:  ["build/deps"]
+
+    script:
+        - make generate-deps-lockfile
+
+    artifacts:
+        name: "Dependency lockfile"
+
 build-job:
     stage: build
+
     cache:
-      - key:    "Makefile"
+      - key:
+            files:
+              - deps.lock
         paths:  ["build/deps"]
 
     script:
@@ -40,3 +58,4 @@ build-job:
 
     dependencies:
       - getinfo
+      - lockfile
