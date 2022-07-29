@@ -22,7 +22,7 @@ getinfo:
       reports:
         dotenv: build.env
 
-generate-lockfile:
+lockfile:
     stage: lockfile
     cache:
       - key:
