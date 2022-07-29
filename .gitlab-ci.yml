@@ -30,7 +30,7 @@ build-job:
     script:
       - dpkg --add-architecture i386
       - apt-get update
-      - apt-get install -y curl zip tar gzip bash bzip2 make file libc6:i386
+      - apt-get install -y curl zip bzip2 make file libc6:i386
       - make
 
     artifacts:
