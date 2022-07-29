@@ -28,8 +28,9 @@ build-job:
         paths:  ["build/deps"]
 
     script:
+      - dpkg --add-architecture i386
       - apt-get update
-      - apt-get install -y curl zip tar gzip bash bzip2 make file
+      - apt-get install -y curl zip tar gzip bash bzip2 make file libc6:i386
       - make
 
     artifacts:
