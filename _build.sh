@@ -80,8 +80,7 @@ cleanup() {
             #WINEPREFIX="$wineprefix" wine "$umake" "$package-$build"
             if [[ -f "$packagefull.u" ]]; then rm "$packagefull.u"; fi
             echo "* Invoking ucc make in $(pwd)"
-            ldd ucc-bin
-            LD_LIBRARY_PATH="$(realpath .)" "$ucc" make -NoBind ini="$TMP_INI" | tee "$packagedir/make.log"
+            "$ucc" make -NoBind ini="$TMP_INI" | tee "$packagedir/make.log"
 
             # Ensure .u is built
             if [[ ! -f "$packagefull.u" ]]; then
