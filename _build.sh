@@ -80,6 +80,7 @@ cleanup() {
             #WINEPREFIX="$wineprefix" wine "$umake" "$package-$build"
             if [[ -f "$packagefull.u" ]]; then rm "$packagefull.u"; fi
             echo "* Invoking ucc make in $(pwd)"
+            ls
             "$ucc" make -NoBind ini="$TMP_INI" | tee "$packagedir/make.log"
 
             # Ensure .u is built
